@@ -29,6 +29,11 @@ var HeroDetailComponent = (function () {
     HeroDetailComponent.prototype.goBack = function () {
         this.location.back();
     };
+    HeroDetailComponent.prototype.save = function () {
+        var _this = this;
+        this.heroService.update(this.hero)
+            .then(function () { return _this.goBack(); });
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', hero_1.Hero)
@@ -38,7 +43,7 @@ var HeroDetailComponent = (function () {
             moduleId: module.id,
             selector: 'my-hero-detail',
             templateUrl: 'hero-detail.component.html',
-            styleUrls: ['hero-detail.component']
+            styleUrls: ['hero-detail.component.css']
         }), 
         __metadata('design:paramtypes', [hero_service_1.HeroService, router_1.ActivatedRoute, common_1.Location])
     ], HeroDetailComponent);
